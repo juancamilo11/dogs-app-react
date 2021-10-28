@@ -1,10 +1,11 @@
 import React from 'react'
+import { Loader } from './Loader';
 
 export const Card = ({ dog, updateDog, loading, error }) => {
     
     if(error) return(<small className="error">{error}</small>);
 
-    if(loading) return (<h1 className="loading-text">Loading a dog...</h1>);
+    if(loading) return (<Loader />);
 
     return (
         <div className="card" onClick={() => updateDog(dog.id)}>
