@@ -211,6 +211,7 @@ input, select {
   border:2px solid red;
   color:inherit;
   opacity:0.75;
+  margin:10px;
 }
 
 .footer-basic .social > a:hover {
