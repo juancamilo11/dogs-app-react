@@ -12,8 +12,6 @@ const fetchBreeds = async () => {
         }
     })
 
-    console.log(infoBreeds);
-
     return infoBreeds;
 }
 

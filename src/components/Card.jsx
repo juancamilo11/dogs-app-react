@@ -1,11 +1,12 @@
 import React from 'react'
 
-export const Card = ({dog}) => {
+export const Card = ({ dog, updateDog }) => {
+    
     return (
-        <div className="card">
+        <div className="card" onClick={() => updateDog(dog.id)}>
             <img 
                 src={dog.image}
-                alt="Dog image" 
+                alt="Dog" 
             />
             <p>{dog.name}</p>
         </div>

@@ -1,21 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BreedSelect } from './components/BreedSelect'
 import { Card } from './components/Card'
-
-const initialDog = {
-  id: 1,
-  image: 'https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg',
-  name: 'Affenpinscher'
-}
+import fetchRandomDog from './helpers/fetchRandomDog'
 
 function App() {
 
-  const [dog, setDog] = useState(initialDog);
+  const [dog, setDog] = useState({});
+
+  const updateDog = (breadId) => {
+    fetchRandomDog(breadId)
+    .then(newDog => {
+      setDog(newDog);
+    })
+  }
+
+  useEffect(() => {
+    updateDog();
+  }, [])
 
   return (
     <div className="app">
-      <BreedSelect />
-      <Card dog={dog}/>
+      <BreedSelect updateDog={updateDog}/>
+      <Card dog={dog} updateDog={updateDog}/>
     </div>
   );
 }
