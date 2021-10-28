@@ -4,10 +4,10 @@ export const Card = ({dog}) => {
     return (
         <div className="card">
             <img 
-                src={dog?.image}
+                src={dog.image}
                 alt="Dog image" 
             />
-            <p>{dog.bread?.name}</p>
+            <p>{dog.name}</p>
         </div>
     )
 }
