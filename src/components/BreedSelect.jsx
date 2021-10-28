@@ -18,12 +18,15 @@ export const BreedSelect = ({ updateDog }) => {
     }
 
     return (
-        <select onChange={ handleChange }>
-        {
-            breeds.map(breed => {
-                return <option key={breed.id} value={breed.id}>{breed.name}</option>
-            })
-        }
-        </select>
+        <>
+            <select onChange={ handleChange }>
+            {
+                breeds.map(breed => {
+                    return <option key={breed.id} value={breed.id}>{breed.name}</option>
+                })
+            }
+            </select>
+            <small className="text-indicator">Click on the image to get a new dog!</small>
+        </>
     )
 }
