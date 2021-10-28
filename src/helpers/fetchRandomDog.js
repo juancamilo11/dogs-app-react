@@ -8,6 +8,12 @@ const fetchRandomDog = async (breadId = 0) => {
         urlImage = `https://api.TheDogAPI.com/v1/images/search?breed_ids=${breadId}`;
     }
     const response = await fetch(urlImage);
+
+    if(!response.ok) {
+        const {url, status, statusText} = response;
+        throw Error(`${status} -> ${statusText} in fetch ${url}`);
+    }
+
     let data = await response.json();
     
     data = data[0];

@@ -8,6 +8,7 @@ function App() {
 
   const [dog, setDog] = useState({});
   const [loading, setLoading] = useState();
+  const [error, setError] = useState(false);
 
   const updateDog = (breadId) => {
     setLoading(true);
@@ -15,6 +16,8 @@ function App() {
     .then(newDog => {
       setDog(newDog);
       setLoading(false);
+    }).catch(err => {
+      setError(`${err}`);
     })
   }
 
@@ -24,8 +27,8 @@ function App() {
 
   return (
     <div className="app">
-      <BreedSelect updateDog={updateDog}/>
-      <Card dog={dog} updateDog={updateDog} loading={loading}/>
+      <BreedSelect updateDog={updateDog} />
+      <Card dog={dog} updateDog={updateDog} loading={loading} error={error}/>
       <Footer />
     </div>
   );
