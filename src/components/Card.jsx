@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({dog}) => {
     return (
         <div className="card">
             <img 
-                src=""
-                alt="" 
+                src={dog?.image}
+                alt="Dog image" 
             />
-            <p>Breed</p>
+            <p>{dog.bread?.name}</p>
         </div>
     )
 }

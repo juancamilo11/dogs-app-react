@@ -14,7 +14,7 @@ export const BreedSelect = () => {
     }, []);
 
     return (
-        <select>
+        <select onChange={() => alert(`You've selected a new dog`)}>
         {
             breeds.map(breed => {
                 return <option key={breed.id} value={breed.id}>{breed.name}</option>
